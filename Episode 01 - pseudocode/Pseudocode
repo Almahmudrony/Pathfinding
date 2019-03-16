@@ -14,8 +14,9 @@ loop
                 if neighbour is not traversable or neighbour is in CLOSED
                         skip to the next neighbour
                 //newPathCost = curr_node.gcost + distance(curr_node, neighbor_node);
-                if newPathCost to neighbour.gcost is shorter OR neighbour is not in OPEN
-                        set f_cost of neighbour to curr_node.fcost// both gcost and fcost
+                if newPathCost < neighbour.gcost OR neighbour is not in OPEN
+                        set gcost of neighbour to newPathCost
+                        set hcost of neighbour to distance(curr_node, target_node)
                         set parent of neighbour to current
                         if neighbour is not in OPEN
                                 add neighbour to OPEN
